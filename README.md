@@ -1,61 +1,84 @@
-# Personal Expense Tracker
+# AI Expense Assistant
 
-A beginner-friendly Python command-line application for recording and reviewing personal expenses.
+A Python command-line mini project that combines local expense tracking, offline spending insights, and optional Gemini-powered natural-language analysis.
 
 ## Features
 
-- Add expenses with date, category, amount and description
-- View all saved expenses
-- Calculate total spending
-- View category-wise spending
-- Delete an expense by its ID
-- Persist records in a local `expenses.json` file
+- Add, list and delete expense records
+- View total, category-wise and monthly spending
+- Generate instant local insights without an internet connection
+- Ask Gemini questions about aggregated spending summaries (optional)
+- Store expense records locally in `expenses.json`
 
 ## Requirements
 
-- Python 3.10 or later
-- No third-party packages required
+- Python 3.10+
+- No third-party packages required for the core application
+- A Gemini API key only if you want to use the optional AI question feature
 
-## How to run
-
-1. Download or clone this repository.
-2. Open the project folder in VS Code.
-3. Open the terminal in that folder.
-4. Run:
-
-```bash
-python expense_tracker.py
-```
-
-On Windows, if `python` is not recognized, try:
+## Run the application
 
 ```powershell
-py expense_tracker.py
+py ai_expense_assistant.py
 ```
 
-## Data storage
+Or:
 
-The application automatically creates `expenses.json` in the same folder when the first expense is saved. Keep this file if you want to retain your records. It is excluded from Git by `.gitignore` so personal spending data is not accidentally uploaded.
+```powershell
+python ai_expense_assistant.py
+```
 
-## Categories
+## Enable the Gemini feature (optional)
 
-Food, Travel, Shopping, Bills, Education, Health, Entertainment and Other.
+1. Create an API key through Google AI Studio: https://aistudio.google.com/app/apikey
+2. In PowerShell, set the key for the current terminal session:
+
+```powershell
+$env:GEMINI_API_KEY="YOUR_API_KEY_HERE"
+```
+
+3. Start the application in the same terminal:
+
+```powershell
+py ai_expense_assistant.py
+```
+
+The application reads the key from the environment. Do not paste your key into the Python source code, README, screenshots, GitHub, or chat.
+
+Optional model override:
+
+```powershell
+$env:GEMINI_MODEL="gemini-2.5-flash"
+```
+
+## Privacy
+
+- Expense records are stored locally in `expenses.json`.
+- The offline insights feature does not send data anywhere.
+- When you choose the Gemini feature, the app sends only aggregated totals by category and month, total spending and expense count. It does not send individual descriptions or dates for each record.
+- Do not enter sensitive personal information in expense descriptions.
+- Review Google's API terms and privacy settings before using an external AI service.
 
 ## Project structure
 
 ```text
-Expense-Tracker-Python-Mini-Project/
-├── expense_tracker.py
+AI-Expense-Assistant/
+├── ai_expense_assistant.py
 ├── README.md
+├── requirements.txt
 └── .gitignore
 ```
 
-## Concepts used
+## Concepts demonstrated
 
-- Variables and data types
-- Conditional statements and loops
-- Functions
+- Python functions, loops and conditional statements
 - Lists and dictionaries
+- JSON file handling
 - Exception handling
-- File handling with JSON
-- Date validation
+- Data aggregation
+- HTTP requests to an AI API
+- Environment variables for API-key management
+
+## Important note
+
+This is an educational budgeting helper, not a financial adviser. Its observations are based only on expenses entered by the user.
