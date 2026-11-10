@@ -1,0 +1,13 @@
+# Personal expense data (do not commit private records)
+expenses.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# VS Code workspace settings
+.vscode/
